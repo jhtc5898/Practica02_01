@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventana.Modelo;
+package Ventana.Controlador;
 
 import Ventana.Ventana.VentanaPrincipal;
 import java.awt.event.ActionEvent;
@@ -26,7 +26,8 @@ public class EventoVentanaPrincipal implements ActionListener
     {
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(0))) 
         {
-            System.err.println("Agregar Ventana Directorio");  
+            System.err.println("Agregar Ventana Directorio"); 
+            
         }
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(1))) 
         {

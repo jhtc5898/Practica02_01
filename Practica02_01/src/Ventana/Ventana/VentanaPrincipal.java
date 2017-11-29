@@ -6,7 +6,7 @@
 package Ventana.Ventana;
 
 import Ventana.Controlador.GestionDato;
-import Ventana.Modelo.EventoVentanaPrincipal;
+import Ventana.Controlador.EventoVentanaPrincipal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDesktopPane;
