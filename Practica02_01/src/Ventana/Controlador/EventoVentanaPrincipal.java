@@ -5,6 +5,7 @@
  */
 package Ventana.Controlador;
 
+import Ventana.Ventana.VentanaDirectorio;
 import Ventana.Ventana.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +28,9 @@ public class EventoVentanaPrincipal implements ActionListener
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(0))) 
         {
             System.err.println("Agregar Ventana Directorio"); 
-            
+            VentanaDirectorio VentDirec = new VentanaDirectorio();
+            VentDirec.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(VentDirec);
         }
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(1))) 
         {
