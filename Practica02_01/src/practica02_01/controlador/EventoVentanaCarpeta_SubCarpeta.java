@@ -23,6 +23,7 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
 {
     private VentanaCarpeta_SubCarpeta VentCarp;
     private Directorio Directorio;
+    private Carpeta_SubCarpeta carpeta;
 
     public EventoVentanaCarpeta_SubCarpeta(VentanaCarpeta_SubCarpeta VentCarp) {
         this.VentCarp = VentCarp;
@@ -35,12 +36,15 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
         this.Directorio = this.VentCarp.getGestionDato().getDirecrtorioList().get(numDir);         
         String Crear=this.VentCarp.getTxtList().get(0).getText();
         
-
-            File fichero=new File("C:\\"+this.Directorio+"\\"+Crear);
-       if(fichero.exists()==false)
+        Carpeta_SubCarpeta  Car = new Carpeta_SubCarpeta(this.Directorio,Crear);
+        Car.setFichero(new File("C:\\"+this.Directorio+"\\"+Crear));
+        
+        if(Car.getFichero().exists()==false)
         {   
-           fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
-            Carpeta_SubCarpeta  Car = new Carpeta_SubCarpeta(this.Directorio,Crear);
+            //Creacion de carpeta con el nombre de la raiz
+            
+            
+            Car.getFichero().mkdir();
             this.VentCarp.getGestionDato().addCarp(Car);
             Object[][] datoCarp = this.VentCarp.cargaDatosTabla(this.VentCarp.getGestionDato().getCarpList().size(), 2);
             this.VentCarp.setDatos(datoCarp);

@@ -5,6 +5,8 @@
  */
 package practica02_01.modelo;
 
+import java.io.File;
+
 /**
  *
  * @author johne
@@ -13,6 +15,7 @@ public class Carpeta_SubCarpeta
 {
     private Directorio Director;
     private String NombreCarp;
+    private File fichero;
 
     public Carpeta_SubCarpeta(Directorio Director, String NombreCarp) {
         this.Director = Director;
@@ -34,7 +37,15 @@ public class Carpeta_SubCarpeta
     public void setNombreCarp(String NombreCarp) {
         this.NombreCarp = NombreCarp;
     }
-    
 
+    public File getFichero() {
+        return fichero;
+    }
+
+    public void setFichero(File fichero) {
+        this.fichero = fichero;
+    }
+    
+    
     
 }
