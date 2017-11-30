@@ -31,7 +31,7 @@ public class EventoDirectorio implements ActionListener
         {
             String direccion=this.VentDirect.getTxtList().get(0).getText();
             //System.err.println("Action");
-             File fichero=new File("C:\\Progra\\"+direccion);
+             File fichero=new File("C:\\"+direccion);
         if(fichero.exists()==false)
         {   
            fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
