@@ -56,6 +56,4 @@ public class GestionDato
         this.archivoList = archivoList;
     }
     
-    
-    
 }

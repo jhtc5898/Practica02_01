@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import practica02_01.controlador.EventoModificarArchivo;
 import practica02_01.controlador.GestionDato;
 import practica02_01.modelo.Archivo;
 
@@ -123,14 +124,17 @@ public class VentanaModificarArchivo extends JInternalFrame{
         JPanel panel = new JPanel(new FlowLayout());
         
         this.etiList.add(new JLabel("Nombre del Archivo"));
+        this.etiList.add(new JLabel("Nuevo nombre"));
         
-        this.botonList.add(new JButton("Cambiar"));
+        this.botonList.add(new JButton("Modificar"));
         
         panel.add(this.etiList.get(0));
         panel.add(this.comboArchivo);
+        panel.add(this.etiList.get(1));
+        panel.add(this.txtList.get(1));
         panel.add(this.botonList.get(0));
         
-   //   this.botonList.get(0).addActionListener(new EventoModificarArchivo(this));
+        this.botonList.get(0).addActionListener(new EventoModificarArchivo(this));
         
         this.add(panel);
         

@@ -5,6 +5,8 @@
  */
 package practica02_01.modelo;
 
+import java.io.File;
+
 /**
  *
  * @author Daniel
@@ -12,9 +14,11 @@ package practica02_01.modelo;
 public class Archivo {
     
     private String nombre;
+    private File fichero;
 
-    public Archivo(String nombre) {
+    public Archivo(String nombre, File fichero) {
         this.nombre = nombre;
+        this.fichero = fichero;
     }
 
     public String getNombre() {
@@ -23,10 +27,11 @@ public class Archivo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-  
-    @Override
-    public String toString() {
-        return "|Archivo|"  + nombre;
+    public File getFichero() {
+        return fichero;
+    }
+    public void setFichero(File fichero) {
+        this.fichero = fichero;
     }
     
 }
