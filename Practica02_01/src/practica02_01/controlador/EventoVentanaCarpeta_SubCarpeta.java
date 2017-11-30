@@ -34,7 +34,6 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
         int numDir= this.VentCarp.getComboDirectorio().getSelectedIndex();
         this.Directorio = this.VentCarp.getGestionDato().getDirecrtorioList().get(numDir);         
         String Crear=this.VentCarp.getTxtList().get(0).getText();
-        String Modificar=this.VentCarp.getTxtList().get(1).getText();
         
 
             File fichero=new File("C:\\"+this.Directorio+"\\"+Crear);
