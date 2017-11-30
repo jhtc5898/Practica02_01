@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventana.Controlador;
+package practica02_01.controlador;
 
-import Ventana.Ventana.VentanaDirectorio;
+import practica02_01.vista.VentanaDirectorio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;

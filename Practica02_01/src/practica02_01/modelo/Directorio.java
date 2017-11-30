@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventana.Modelo;
+package practica02_01.modelo;
 
 /**
  *

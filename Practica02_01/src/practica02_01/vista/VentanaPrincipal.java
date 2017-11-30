@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ventana.Ventana;
+package practica02_01.vista;
 
-import Ventana.Controlador.GestionDato;
-import Ventana.Controlador.EventoVentanaPrincipal;
+import practica02_01.controlador.GestionDato;
+import practica02_01.controlador.EventoVentanaPrincipal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDesktopPane;
