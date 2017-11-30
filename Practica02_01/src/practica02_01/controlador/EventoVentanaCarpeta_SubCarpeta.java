@@ -37,7 +37,7 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
         String Modificar=this.VentCarp.getTxtList().get(1).getText();
         
 
-            File fichero=new File("C:\\Progra\\"+this.Directorio+"\\"+Crear);
+            File fichero=new File("C:\\"+this.Directorio+"\\"+Crear);
        if(fichero.exists()==false)
         {   
            fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
