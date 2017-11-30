@@ -5,11 +5,46 @@
  */
 package practica02_01.controlador;
 
-/**
- *
- * @author johne
- */
+import java.util.List;
+import practica02_01.modelo.Carpeta_SubCarpeta;
+import practica02_01.modelo.Directorio;
+
 public class GestionDato 
 {
+    private List<Directorio> direcrtorioList;
+    private List<Carpeta_SubCarpeta> carpList;
+
+    public GestionDato(List<Directorio> direcrtorioList, List<Carpeta_SubCarpeta> carpList) {
+        this.direcrtorioList = direcrtorioList;
+        this.carpList = carpList;
+    }
+
+     
+    public boolean addDirectorio(Directorio p)
+    {
+        return this.direcrtorioList.add(p);
+    }
+    public boolean addCarp(Carpeta_SubCarpeta a)
+    {
+        return this.carpList.add(a);
+    }
+
+    public List<Directorio> getDirecrtorioList() {
+        return direcrtorioList;
+    }
+
+    public void setDirecrtorioList(List<Directorio> direcrtorioList) {
+        this.direcrtorioList = direcrtorioList;
+    }
+
+    public List<Carpeta_SubCarpeta> getCarpList() {
+        return carpList;
+    }
+
+    public void setCarpList(List<Carpeta_SubCarpeta> carpList) {
+        this.carpList = carpList;
+    }
+    
+    
     
 }

@@ -22,25 +22,22 @@ import javax.swing.JMenuItem;
  */
 public class VentanaPrincipal extends JFrame
 {
-     //private GestionDato gestionDato;
+     private GestionDato gestionDato;
     private JDesktopPane escritorio;
     private JMenuBar barraMenu;
     private java.util.List<JMenu> menuList;
     private ArrayList<JMenuItem> menuItemList;
    // private GestionDato Gd;
 
-    public VentanaPrincipal() {
+    public VentanaPrincipal(GestionDato gD) {
          super("Archivos");
-      //  this.gestionDato = gestionDato;
+        this.gestionDato = gD;
         this.setSize(800, 600);
         this.iniciaComponentes();
         this.setDefaultCloseOperation(3);
         this.setVisible(true);
         
     }
-    
-    
-  
     private void iniciaComponentes() 
     {
        this.escritorio= new JDesktopPane();
@@ -54,8 +51,15 @@ public class VentanaPrincipal extends JFrame
 
         this.menuItemList= new ArrayList<JMenuItem>();
         this.menuItemList.add(new JMenuItem("Crear Directorios"));
+        
         this.menuItemList.add(new JMenuItem("Crear  Carpeta/SubCarpetas"));
-        this.menuItemList.add(new JMenuItem("Administrar Carpeta"));
+        this.menuItemList.add(new JMenuItem("Modificar Carpeta/SubCarpetas"));
+        this.menuItemList.add(new JMenuItem("Eliminar  Carpeta/SubCarpetas"));
+        
+        this.menuItemList.add(new JMenuItem("Crear Archivo"));
+        this.menuItemList.add(new JMenuItem("Modificar Archivo"));
+        this.menuItemList.add(new JMenuItem("Eliminar Archivo"));
+        
         this.menuItemList.add(new JMenuItem("Directorio"));
 
         
@@ -67,12 +71,17 @@ public class VentanaPrincipal extends JFrame
         
         this.barraMenu.add(this.menuList.get(1));
         this.menuList.get(1).add(this.menuItemList.get(1));
+        this.menuList.get(1).add(this.menuItemList.get(2));
+        this.menuList.get(1).add(this.menuItemList.get(3));
         
         this.barraMenu.add(this.menuList.get(2));
-        this.menuList.get(2).add(this.menuItemList.get(2));
+        this.menuList.get(2).add(this.menuItemList.get(4));
+        this.menuList.get(2).add(this.menuItemList.get(5));
+        this.menuList.get(2).add(this.menuItemList.get(6));
+        
         
         this.barraMenu.add(this.menuList.get(3));
-        this.menuList.get(3).add(this.menuItemList.get(3));
+        this.menuList.get(3).add(this.menuItemList.get(7));
         
         
         
@@ -80,6 +89,10 @@ public class VentanaPrincipal extends JFrame
         this.menuItemList.get(1).addActionListener(new EventoVentanaPrincipal(this));
         this.menuItemList.get(2).addActionListener(new EventoVentanaPrincipal(this));
         this.menuItemList.get(3).addActionListener(new EventoVentanaPrincipal(this));
+        this.menuItemList.get(4).addActionListener(new EventoVentanaPrincipal(this));
+        this.menuItemList.get(5).addActionListener(new EventoVentanaPrincipal(this));
+        this.menuItemList.get(6).addActionListener(new EventoVentanaPrincipal(this));
+        this.menuItemList.get(7).addActionListener(new EventoVentanaPrincipal(this));
 
     }
 
@@ -114,6 +127,17 @@ public class VentanaPrincipal extends JFrame
     public void setMenuItemList(ArrayList<JMenuItem> menuItemList) {
         this.menuItemList = menuItemList;
     }
+
+    public GestionDato getGestionDato() {
+        return gestionDato;
+    }
+
+    public void setGestionDato(GestionDato gestionDato) {
+        this.gestionDato = gestionDato;
+    }
+
+  
+    
     
 
     

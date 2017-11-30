@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import practica02_01.modelo.Directorio;
 
 /**
  *
@@ -25,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VentanaDirectorio extends JInternalFrame
 {
-      private GestionDato gestionDato;
+    private GestionDato gestionDato;
     private List<JLabel> etiList;
     private List<JTextField> txtList;
     private JButton boton;
@@ -36,11 +37,12 @@ public class VentanaDirectorio extends JInternalFrame
     private JScrollPane scroll;
     private JPanel panel;
 
-    public VentanaDirectorio() 
+    public VentanaDirectorio(GestionDato gd) 
     {
         super("Crear Directorio",true,true,true,true);
+        this.gestionDato = gd; 
         this.iniciaComponentes();
-        this.setSize(300, 200);      
+        this.setSize(500, 200);      
     }
     
     
@@ -53,14 +55,41 @@ public class VentanaDirectorio extends JInternalFrame
         this.txtList.add(new JTextField(15)); 
         JPanel panel = new JPanel(new FlowLayout()); 
         panel.add(this.etiList.get(0));
-        panel.add(this.txtList.get(0));  
-
-
+        panel.add(this.txtList.get(0));
+        this.encabezado= new Object[1];               
+        this.encabezado[0]="Direccion Del Directorio";
+        this.datos=cargaDatosTabla(this.gestionDato.getDirecrtorioList().size(),1); 
+        this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);        
+        this.tabla= new JTable(this.modeloTabla);
+        this.scroll = new JScrollPane(this.tabla);
+        
+        
         this.boton=new JButton("Guardar");
         this.boton.addActionListener(new EventoDirectorio(this));
         panel.add(this.boton);
+        panel.add(this.scroll);
+        
         this.add(panel); 
     }
+     public Object[][] cargaDatosTabla(int h, int w)
+    {
+       
+        Object[][] retorno= new Object[h][w];
+        int i=0;
+        
+          
+        for(Directorio p:this.gestionDato.getDirecrtorioList())
+        {
+            
+            retorno[i][0]=p.getDireccion();
+            i++;
+            
+            
+        }       
+        return retorno;
+        
+    }
+   
 
     public GestionDato getGestionDato() {
         return gestionDato;

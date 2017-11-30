@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JOptionPane;
+import practica02_01.modelo.Directorio;
 
 /**
  *
@@ -30,11 +31,18 @@ public class EventoDirectorio implements ActionListener
         {
             String direccion=this.VentDirect.getTxtList().get(0).getText();
             //System.err.println("Action");
-             File fichero=new File("C:\\"+direccion);
+             File fichero=new File("C:\\Progra\\"+direccion);
         if(fichero.exists()==false)
         {   
            fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
-           /*String Temp = "TEMP";
+           
+        Directorio Dir = new Directorio(direccion);
+        this.VentDirect.getGestionDato().addDirectorio(Dir);
+        this.VentDirect.getTxtList().get(0).setText("");
+        Object [][] datoDir=this.VentDirect.cargaDatosTabla(this.VentDirect.getGestionDato().getDirecrtorioList().size(),1);
+        this.VentDirect.setDatos(datoDir);
+        this.VentDirect.getModeloTabla().setDataVector(this.VentDirect.getDatos(), this.VentDirect.getEncabezado()); 
+        /*String Temp = "TEMP";
             int i;
            for(i=0;i<100;i++)
              { 
@@ -46,8 +54,14 @@ public class EventoDirectorio implements ActionListener
         else
         {   
             JOptionPane.showMessageDialog(null,"Directorio Repetido .");
+            //fichero.delete();
         }
+           
+      
+           
         }   
+         
+         
         }
 
     public VentanaDirectorio getVentDirect() {

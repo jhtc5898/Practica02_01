@@ -5,6 +5,8 @@
  */
 package practica02_01.modelo;
 
+import java.io.File;
+
 /**
  *
  * @author johne
@@ -24,6 +26,15 @@ public class Directorio
     public void setDireccion(String Direccion) {
         this.Direccion = Direccion;
     }
+
+    @Override
+    public String toString() {
+        return  Direccion ;
+    }
+
+  
+   
+
     
     
 }
