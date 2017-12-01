@@ -31,40 +31,40 @@ public class EventoModificarArchivo implements ActionListener{
     public void setModificarArchivo(VentanaModificarArchivo modificarArchivo) {
         this.modificarArchivo = modificarArchivo;
     }
-    public Archivo getArchivo() {
-        return archivo;
-    }
-    public void setArchivo(Archivo archivo) {
-        this.archivo = archivo;
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-     
-        int numA = this.modificarArchivo.getComboArchivo().getSelectedIndex();
-        this.archivo = this.modificarArchivo.getGestionDato().getArchivoList().get(numA);
-        String nuevoNombre = this.modificarArchivo.getTxtList().get(0).getText();
+    
+        try
+        {
+            int numA = this.modificarArchivo.getComboArchivo().getSelectedIndex();
+            this.archivo = this.modificarArchivo.getGestionDato().getArchivoList().get(numA);
+            String nuevoNombre = this.modificarArchivo.getTxtList().get(0).getText();
         
-        this.archivo.setNombre(nuevoNombre);
+            this.archivo.setNombre(nuevoNombre);
         
-        this.modificarArchivo.getTxtList().get(0).setText("");
+            this.modificarArchivo.getTxtList().get(0).setText("");
         
-        if (e.getSource().equals(this.modificarArchivo.getBotonList().get(0)))
-	{
-            File nFichero = new File("C:\\"+this.archivo.getNombre()+"\\"+nuevoNombre);
+            if (e.getSource().equals(this.modificarArchivo.getBotonList().get(0)))
+            {
+                File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nuevoNombre);
             
-            if(nFichero.exists()==false)
-            {
-                nFichero.mkdir();
-                this.archivo.getFichero().renameTo(nFichero);
+                if(nFichero.exists()==false)
+                {
+                    nFichero.mkdir();
+                    this.archivo.getFichero().renameTo(nFichero);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"El archivo ya existe");
+                }
             }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"El archivo ya existe");
-            }
-        }
         
+        }
+        catch(ArrayIndexOutOfBoundsException ae)
+        {
+            JOptionPane.showMessageDialog(null,"Campos vacios"); 
+        }
     }
-    
-    
+ 
 }

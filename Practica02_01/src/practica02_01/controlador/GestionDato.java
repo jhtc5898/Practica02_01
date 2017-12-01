@@ -55,5 +55,4 @@ public class GestionDato
     public void setArchivoList(List<Archivo> archivoList) {
         this.archivoList = archivoList;
     }
-    
 }
