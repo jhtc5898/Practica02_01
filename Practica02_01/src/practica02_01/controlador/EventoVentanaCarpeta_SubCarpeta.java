@@ -83,7 +83,13 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
                     if(fichero.exists()==false)
                     {   
            fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
-            this.VentCarp.getGestionDato().addCarp(Car);
+            
+           Directorio nDirectorio = new Directorio(this.Directorio+"\\"+Crear);
+           Carpeta_SubCarpeta  Car2 = new Carpeta_SubCarpeta(nDirectorio,SubCarpeta);
+           Car2.setFichero(fichero);
+           
+           
+            this.VentCarp.getGestionDato().addCarp(Car2);
             Object[][] datoCarp = this.VentCarp.cargaDatosTabla(this.VentCarp.getGestionDato().getCarpList().size(), 2);
             this.VentCarp.setDatos(datoCarp);
             this.VentCarp.getModeloTabla().setDataVector(this.VentCarp.getDatos(), this.VentCarp.getEncabezado());

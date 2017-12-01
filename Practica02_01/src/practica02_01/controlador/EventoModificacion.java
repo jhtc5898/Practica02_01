@@ -47,7 +47,7 @@ public class EventoModificacion implements ActionListener {
             this.ventanaModificacion.getTxtList().get(0).setText("");
         
             File nFichero = new File ("C:\\"+ this.carpeta.getDirector()+"\\"+nuevoNombre);
-            
+                        
             this.carpeta.getFichero().renameTo(nFichero);
             
         } catch(NumberFormatException e) {

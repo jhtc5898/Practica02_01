@@ -36,7 +36,7 @@ public class VentanaModificacion extends JInternalFrame {
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
-        this.setSize(250, 150);              
+        this.setSize(250, 300);              
     }
 
     public GestionDato getGestionDato() {
@@ -119,7 +119,7 @@ public class VentanaModificacion extends JInternalFrame {
         String[] retorno = new String[this.gestionDato.getCarpList().size()];
         int i=0;
         for(Carpeta_SubCarpeta c: this.gestionDato.getCarpList()) {
-            retorno[i] = c.getNombreCarp() + " | Directorio: " + c.getDirector();
+            retorno[i] = "Nombre: " + c.getNombreCarp() + "   | Directorio: " + c.getDirector();
             i++;
         }
         return retorno;
