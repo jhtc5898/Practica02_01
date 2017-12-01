@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import practica02_01.vista.Arbol;
 import practica02_01.vista.VentanaCarpeta_SubCarpeta;
+import practica02_01.vista.VentanaCrearArchivo;
 import practica02_01.vista.VentanaEliminarArchivo;
 import practica02_01.vista.VentanaModificacion;
 import practica02_01.vista.VentanaModificarArchivo;
@@ -55,12 +56,18 @@ public class EventoVentanaPrincipal implements ActionListener
             if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(3))) 
         {
             System.err.println("Agregar Ventana  Eliminar Carpeta/SubCarpeta"); 
+             VentanaModificacion vM = new VentanaModificacion(this.VentPrincipal.getGestionDato());
+            vM.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(vM);
            
         }
             
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(4))) 
         {
-            System.err.println("Agregar Ventana Administrar Archivo");  
+            System.err.println("Crear Archivo"); 
+            VentanaCrearArchivo vA = new VentanaCrearArchivo(this.VentPrincipal.getGestionDato());
+            vA.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(vA);
         }
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(5))) 
         {

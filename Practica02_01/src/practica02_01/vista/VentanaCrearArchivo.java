@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import practica02_01.controlador.EventoCrearArchivo;
 import practica02_01.controlador.GestionDato;
+import practica02_01.modelo.Archivo;
 import practica02_01.modelo.Carpeta_SubCarpeta;
 
 /**
@@ -110,9 +111,9 @@ public class VentanaCrearArchivo extends JInternalFrame
     public Object[][] cargaDatosTabla(int m, int n) {
         Object[][] retorno = new Object[m][n];
         int i=0;
-        for(Carpeta_SubCarpeta b: this.gestionDato.getCarpList()) {
-            retorno[i][0] = b.getDirector();
-            retorno[i][1] = b.getNombreCarp();
+        for(Archivo a: this.gestionDato.getArchivoList()) {
+            retorno[i][0] = a.getDirectorio();
+            retorno[i][1] = a.getNombre();
             i++;
         }        
         return retorno;
