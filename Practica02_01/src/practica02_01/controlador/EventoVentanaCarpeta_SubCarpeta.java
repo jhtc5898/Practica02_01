@@ -24,6 +24,8 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
     private VentanaCarpeta_SubCarpeta VentCarp;
     private Directorio Directorio;
     private Carpeta_SubCarpeta carpeta;
+    
+    
 
     public EventoVentanaCarpeta_SubCarpeta(VentanaCarpeta_SubCarpeta VentCarp) {
         this.VentCarp = VentCarp;
