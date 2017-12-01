@@ -15,8 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import practica02_01.controlador.EventoModificarArchivo;
+import practica02_01.controlador.EventoEliminarArchivo;
 import practica02_01.controlador.GestionDato;
 import practica02_01.modelo.Archivo;
 
@@ -24,7 +23,7 @@ import practica02_01.modelo.Archivo;
  *
  * @author Daniel
  */
-public class VentanaModificarArchivo extends JInternalFrame{
+public class VentanaEliminarArchivo extends JInternalFrame{
     
     private GestionDato gestionDato;
     private List<JLabel> etiList;
@@ -35,8 +34,8 @@ public class VentanaModificarArchivo extends JInternalFrame{
     private JComboBox comboArchivo;
     private JScrollPane scroll;
     private JPanel panel;
-    
-    public VentanaModificarArchivo(GestionDato gd) 
+   
+    public VentanaEliminarArchivo(GestionDato gd) 
     {
         super("Modificar Archivo",true,true,true,true);
         this.gestionDato = gd; 
@@ -80,6 +79,12 @@ public class VentanaModificarArchivo extends JInternalFrame{
     public void setEncabezado(Object[] encabezado) {
         this.encabezado = encabezado;
     }
+    public JComboBox getComboArchivo() {
+        return comboArchivo;
+    }
+    public void setComboArchivo(JComboBox comboArchivo) {
+        this.comboArchivo = comboArchivo;
+    }
     public JScrollPane getScroll() {
         return scroll;
     }
@@ -92,14 +97,7 @@ public class VentanaModificarArchivo extends JInternalFrame{
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-    public JComboBox getComboArchivo() {
-        return comboArchivo;
-    }
-    public void setComboArchivo(JComboBox comboArchivo) {
-        this.comboArchivo = comboArchivo;
-    }
     
-   
     public void iniciaComponente()
     {
         this.etiList= new ArrayList<JLabel>();
@@ -109,20 +107,16 @@ public class VentanaModificarArchivo extends JInternalFrame{
         JPanel panel = new JPanel(new FlowLayout());
         
         this.etiList.add(new JLabel("Nombre del Archivo"));
-        this.etiList.add(new JLabel("Nuevo nombre"));
         
-        this.botonList.add(new JButton("Modificar"));
+        this.botonList.add(new JButton("Eliminar"));
         
         panel.add(this.etiList.get(0));
         panel.add(this.comboArchivo);
-        panel.add(this.etiList.get(1));
-        panel.add(this.txtList.get(1));
         panel.add(this.botonList.get(0));
         
-        this.botonList.get(0).addActionListener(new EventoModificarArchivo(this));
+        this.botonList.get(0).addActionListener(new EventoEliminarArchivo(this));
         
         this.add(panel);
-        
     }
     
     public String[] cargaCombo() 
@@ -136,4 +130,5 @@ public class VentanaModificarArchivo extends JInternalFrame{
         }
         return retorno;
     }
+    
 }

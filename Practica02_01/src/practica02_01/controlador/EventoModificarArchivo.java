@@ -8,6 +8,7 @@ package practica02_01.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.JOptionPane;
 import practica02_01.modelo.Archivo;
 import practica02_01.vista.VentanaModificarArchivo;
 
@@ -48,9 +49,20 @@ public class EventoModificarArchivo implements ActionListener{
         
         this.modificarArchivo.getTxtList().get(0).setText("");
         
-        File nFichero = new File("C:\\"+this.archivo.getNombre()+"\\"+nuevoNombre);
-        
-        this.archivo.getFichero().renameTo(nFichero);
+        if (e.getSource().equals(this.modificarArchivo.getBotonList().get(0)))
+	{
+            File nFichero = new File("C:\\"+this.archivo.getNombre()+"\\"+nuevoNombre);
+            
+            if(nFichero.exists()==false)
+            {
+                nFichero.mkdir();
+                this.archivo.getFichero().renameTo(nFichero);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"El archivo ya existe");
+            }
+        }
         
     }
     
