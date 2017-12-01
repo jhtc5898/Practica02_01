@@ -11,7 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import practica02_01.vista.Arbol;
 import practica02_01.vista.VentanaCarpeta_SubCarpeta;
+import practica02_01.vista.VentanaEliminarArchivo;
 import practica02_01.vista.VentanaModificacion;
+import practica02_01.vista.VentanaModificarArchivo;
 
 /**
  *
@@ -62,11 +64,15 @@ public class EventoVentanaPrincipal implements ActionListener
         }
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(5))) 
         {
-            System.err.println("Agregar Ventana Modificar Administrar Archivo");  
+            VentanaModificarArchivo modArchivo = new VentanaModificarArchivo(this.VentPrincipal.getGestionDato());
+            modArchivo.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(modArchivo);
         }
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(6))) 
         {
-            System.err.println("Agregar Ventana Eliminar Administrar Archivo");  
+            VentanaEliminarArchivo eliArch = new VentanaEliminarArchivo(this.VentPrincipal.getGestionDato());
+            eliArch.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(eliArch);  
         }
         
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(7))) 

@@ -28,10 +28,8 @@ private GestionDato gD;
             
     {
        // System.out.println(this.carpeta.getDirector().getDireccion());
-           for(int i=0; i<this.gD.getDirecrtorioList().size(); i++) {
-               System.out.println(i);
-           }
-           File Directorio =new File("C:\\Users\\johne\\Desktop\\Universidad" );
+   
+           File Directorio =new File("C:\\Users\\danie\\Desktop" );
         
         DefaultMutableTreeNode Nodo = new DefaultMutableTreeNode(Directorio.getName());//Padre
         DefaultTreeModel modelo = new DefaultTreeModel(Nodo);

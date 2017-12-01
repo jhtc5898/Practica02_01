@@ -41,29 +41,35 @@ public class EventoEliminarArchivo implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        int numA = this.eliminarArchivo.getComboArchivo().getSelectedIndex();
-        this.archivo = this.eliminarArchivo.getGestionDato().getArchivoList().get(numA);
-        String nombre = this.eliminarArchivo.getTxtList().get(0).getText();
+        try
+        {
+            int numA = this.eliminarArchivo.getComboArchivo().getSelectedIndex();
+            this.archivo = this.eliminarArchivo.getGestionDato().getArchivoList().get(numA);
+            String nombre = this.eliminarArchivo.getTxtList().get(0).getText();
         
-        this.archivo.setNombre(nombre);
+            this.archivo.setNombre(nombre);
         
-        this.eliminarArchivo.getTxtList().get(0).setText("");
+            this.eliminarArchivo.getTxtList().get(0).setText("");
         
-        if (e.getSource().equals(this.eliminarArchivo.getBotonList().get(0)))
-	{
-            File nFichero = new File("C:\\"+this.archivo.getNombre()+"\\"+nombre);
+            if (e.getSource().equals(this.eliminarArchivo.getBotonList().get(0)))
+            {
+                File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nombre);
             
-            if(nFichero.exists()==false)
-            {
-                nFichero.mkdir();
-                this.archivo.getFichero().delete();
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Archivo no existe");
-            }
+                if(nFichero.exists()==true)
+                {
+                    nFichero.mkdir();
+                    this.archivo.getFichero().delete();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Archivo no existe");
+                }      
+            }                    
         }
-                     
+        catch(ArrayIndexOutOfBoundsException ae)
+        {
+            JOptionPane.showMessageDialog(null,"Campos vacios");     
+        }
     }
     
 }

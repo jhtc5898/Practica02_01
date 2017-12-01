@@ -13,14 +13,22 @@ import java.io.File;
  */
 public class Archivo {
     
+    private String Directorio;
     private String nombre;
     private File fichero;
 
-    public Archivo(String nombre, File fichero) {
+    public Archivo(String Directorio, String nombre, File fichero) {
+        this.Directorio = Directorio;
         this.nombre = nombre;
         this.fichero = fichero;
     }
 
+    public String getDirectorio() {
+        return Directorio;
+    }
+    public void setDirectorio(String Directorio) {
+        this.Directorio = Directorio;
+    }
     public String getNombre() {
         return nombre;
     }
