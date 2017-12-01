@@ -5,9 +5,13 @@
  */
 package practica02_01.controlador;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.UIManager;
 import practica02_01.modelo.Carpeta_SubCarpeta;
 import practica02_01.vista.VentanaModificacion;
 
@@ -35,18 +39,40 @@ public class EventoModificacion implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        int numCarp = this.ventanaModificacion.getComboCarpeta().getSelectedIndex();
-        this.carpeta = this.ventanaModificacion.getGestionDato().getCarpList().get(numCarp);
+        try {
+            
+            int numCarp = this.ventanaModificacion.getComboCarpeta().getSelectedIndex();
+            this.carpeta = this.ventanaModificacion.getGestionDato().getCarpList().get(numCarp);
         
-        String nuevoNombre = this.ventanaModificacion.getTxtList().get(0).getText();
+            String nuevoNombre = this.ventanaModificacion.getTxtList().get(0).getText();
         
-        this.carpeta.setNombreCarp(nuevoNombre);
+            this.carpeta.setNombreCarp(nuevoNombre);
         
-        this.ventanaModificacion.getTxtList().get(0).setText("");
+            this.ventanaModificacion.getTxtList().get(0).setText("");
         
-        File nFichero = new File ("C:\\"+this.carpeta.getDirector()+"\\"+nuevoNombre);
+            File nFichero = new File ("C:\\"+ this.carpeta.getDirector()+"\\"+nuevoNombre);
         
-        this.carpeta.getFichero().renameTo(nFichero);
+            this.carpeta.getFichero().renameTo(nFichero);
+            
+        } catch(NumberFormatException e) {
+            JDialog d = new JDialog();
+            d.setTitle("Error");
+            d.getContentPane().add(new JLabel("   Los casilleros NO se han llenado correctamente."));
+            d.setSize(320, 100);
+            d.setLocation(830, 400);
+            d.setBackground(Color.RED);
+            d.setVisible(true);
+        } catch(ArrayIndexOutOfBoundsException e2) {
+            JDialog d = new JDialog();           
+            d.setTitle("Error");
+            d.getContentPane().add(new JLabel("              No se han encontrado Carpetas."));
+            d.setSize(320, 100);
+            d.setLocation(830, 400);
+            d.setBackground(Color.RED);
+            d.setVisible(true);
+        }
+        
+        
         
     }
     
