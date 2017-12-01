@@ -34,15 +34,17 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
         int numDir= this.VentCarp.getComboDirectorio().getSelectedIndex();
         this.Directorio = this.VentCarp.getGestionDato().getDirecrtorioList().get(numDir);         
         String Crear=this.VentCarp.getTxtList().get(0).getText();
+        String SubCarpeta=this.VentCarp.getTxtList().get(1).getText();
         
-
-            File fichero=new File("C:\\"+this.Directorio+"\\"+Crear);
-       if(fichero.exists()==false)
+         if (e.getSource().equals(this.VentCarp.getBotonList().get(0)))
+	        {
+         File fichero=new File("C:\\"+this.Directorio+"\\"+Crear);
+        if(fichero.exists()==false)
         {   
            fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
             Carpeta_SubCarpeta  Car = new Carpeta_SubCarpeta(this.Directorio,Crear);
             this.VentCarp.getGestionDato().addCarp(Car);
-            Object[][] datoCarp = this.VentCarp.cargaDatosTabla(this.VentCarp.getGestionDato().getCarpList().size(), 2);
+            Object[][] datoCarp = this.VentCarp.cargaDatosTabla(this.VentCarp.getGestionDato().getCarpList().size(), 3);
             this.VentCarp.setDatos(datoCarp);
             this.VentCarp.getModeloTabla().setDataVector(this.VentCarp.getDatos(), this.VentCarp.getEncabezado());
            /*String Temp = "TEMP";
@@ -54,13 +56,32 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
                  //fichero = File.createTempFile(Temp, ".docx" , new File("C:\\Users\\Estudiante\\Desktop\\GUARDE AQUI SUS ARCHIVOS\\File") );
              } */
         }
+       
         else
         {   
             JOptionPane.showMessageDialog(null,"Directorio Repetido .");
             //fichero.delete();
         }
-            
-            
+                }
+           if (e.getSource().equals(this.VentCarp.getBotonList().get(1)))
+	        {
+                    System.out.println("SubCarpeta");
+                    File fichero=new File("C:\\"+this.Directorio+"\\"+Crear+"\\"+SubCarpeta);
+                    if(fichero.exists()==false)
+                    {   
+           fichero.mkdir();//Creacion de carpeta con el nombre de la raiz
+           Carpeta_SubCarpeta  Car = new Carpeta_SubCarpeta(this.Directorio,SubCarpeta);
+            this.VentCarp.getGestionDato().addCarp(Car);
+            Object[][] datoCarp = this.VentCarp.cargaDatosTabla(this.VentCarp.getGestionDato().getCarpList().size(), 2);
+            this.VentCarp.setDatos(datoCarp);
+            this.VentCarp.getModeloTabla().setDataVector(this.VentCarp.getDatos(), this.VentCarp.getEncabezado());
+                }
+                    else
+                    {
+                         JOptionPane.showMessageDialog(null,"Directorio Repetido .");
+                    }
+                     }
+ 
     }
 
     public VentanaCarpeta_SubCarpeta getVentCarp() {

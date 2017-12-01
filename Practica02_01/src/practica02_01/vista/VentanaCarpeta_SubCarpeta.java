@@ -44,7 +44,7 @@ public class VentanaCarpeta_SubCarpeta extends JInternalFrame
         super("Administar Carpeta_SubCarpeta",true,true,true,true);
         this.gestionDato = gestionDato;
         this.iniciaComponente();
-        this.setSize(500,400);
+        this.setSize(750,400);
     }
     
     public void iniciaComponente() {
@@ -63,14 +63,17 @@ public class VentanaCarpeta_SubCarpeta extends JInternalFrame
         this.etiList.add(new JLabel("Crear:"));
         this.txtList.add(new JTextField(7));
         
+        this.etiList.add(new JLabel("SubCarpeta"));
+        this.txtList.add(new JTextField(7));
         
-        this.botonList.add(new JButton("Guardar"));
+        
+        this.botonList.add(new JButton("Guardar Carpeta"));
+        this.botonList.add(new JButton("Guardar SubCarpeta"));
         
         this.encabezado = new Object[2];               
         this.encabezado[0] = "Directorio";
-        this.encabezado[1] = "Carpeta";
-       /* this.encabezado[2] = "Festival;";
-        this.encabezado[3] = "Asiento";*/
+        this.encabezado[1] = "Carpeta/SubCarpeta";
+        /*this.encabezado[3] = "Asiento";*/
         
         this.datos = cargaDatosTabla(this.gestionDato.getCarpList().size(),2);
 
@@ -82,11 +85,16 @@ public class VentanaCarpeta_SubCarpeta extends JInternalFrame
         panel.add(this.comboDirectorio);
         panel.add(this.etiList.get(1));
         panel.add(this.txtList.get(0));
-        
         panel.add(this.botonList.get(0));
+        panel.add(this.etiList.get(2));
+        panel.add(this.txtList.get(1));
+        panel.add(this.botonList.get(1));
+        
+       
         panel.add(this.scroll);
         
         this.botonList.get(0).addActionListener(new EventoVentanaCarpeta_SubCarpeta (this));
+        this.botonList.get(1).addActionListener(new EventoVentanaCarpeta_SubCarpeta (this));
         
         this.add(panel);
         
