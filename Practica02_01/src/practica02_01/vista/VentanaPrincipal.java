@@ -33,6 +33,7 @@ public class VentanaPrincipal extends JFrame
          super("Archivos");
         this.gestionDato = gD;
         this.setSize(800, 600);
+        this.setLocation(500,250);
         this.iniciaComponentes();
         this.setDefaultCloseOperation(3);
         this.setVisible(true);
