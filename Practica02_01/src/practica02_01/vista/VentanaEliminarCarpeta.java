@@ -6,6 +6,7 @@
 package practica02_01.vista;
 
 import java.awt.FlowLayout;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import practica02_01.controlador.EventoEliminarCarpeta;
 import practica02_01.controlador.GestionDato;
+import practica02_01.modelo.Carpeta_SubCarpeta;
 import practica02_01.modelo.Directorio;
 
 /**
@@ -56,15 +58,11 @@ public class VentanaEliminarCarpeta extends JInternalFrame {
         JPanel panel = new JPanel(new FlowLayout());
 
         this.etiList.add(new JLabel("Directorio:"));
-        this.etiList.add(new JLabel("Nombre de la carpeta:"));
-        this.txtList.add(new JTextField(7));
         this.botonList.add(new JButton("Eliminar"));
     
 
         panel.add(this.etiList.get(0));
         panel.add(this.comboDirectorio);
-        panel.add(this.etiList.get(1));
-        panel.add(this.txtList.get(0));
         panel.add(this.botonList.get(0));
     
 
@@ -75,11 +73,11 @@ public class VentanaEliminarCarpeta extends JInternalFrame {
 
     }
 
-    public String[] cargaComboDirectorio() {
-        String[] retorno = new String[this.gestionDato.getDirecrtorioList().size()];
+    public File[] cargaComboDirectorio() {
+        File[] retorno = new File[this.gestionDato.getCarpList().size()];
         int i = 0;
-        for (Directorio a : this.gestionDato.getDirecrtorioList()) {
-            retorno[i] = a.getDireccion();
+        for (Carpeta_SubCarpeta a : this.gestionDato.getCarpList()) {
+            retorno[i] = a.getFichero();
             i++;
         }
         return retorno;

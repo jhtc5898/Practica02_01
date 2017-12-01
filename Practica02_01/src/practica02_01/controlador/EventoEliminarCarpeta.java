@@ -29,47 +29,8 @@ public class EventoEliminarCarpeta implements ActionListener {
 
         int nDir = this.ventanaEliminar.getComboDirectorio().getSelectedIndex();
         this.fichero = this.ventanaEliminar.getGestionDato().getCarpList().get(nDir).getFichero();
-        this.nC = this.ventanaEliminar.getTxtList().get(0).getText();
-
-       
-
-        File[] paths = this.fichero.listFiles();
-
-        for (File path : paths) {
-
-            System.err.println(path);
-
-            if (path.isDirectory()) {
-
-                
-                    RecorrerDirectorio(path);
-                
-
-            }
-
-        }
+        
+        this.fichero.delete();
+        
     }
-
-    public static File RecorrerDirectorio(File Directorio) {
-
-        File[] paths = Directorio.listFiles();
-
-        for (File path : paths) {
-
-            System.err.println(path);
-
-            if (path.isDirectory()) {
-                
-                 
-                    RecorrerDirectorio(path);
-                
-                
-            }
-
-        }
-
-        return Directorio;
-
-    }
-
 }
