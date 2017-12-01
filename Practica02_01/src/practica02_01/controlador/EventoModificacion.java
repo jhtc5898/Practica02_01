@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package practica02_01.controlador;
 
 import java.awt.Color;
@@ -51,7 +47,7 @@ public class EventoModificacion implements ActionListener {
             this.ventanaModificacion.getTxtList().get(0).setText("");
         
             File nFichero = new File ("C:\\"+ this.carpeta.getDirector()+"\\"+nuevoNombre);
-        
+            
             this.carpeta.getFichero().renameTo(nFichero);
             
         } catch(NumberFormatException e) {
@@ -65,7 +61,7 @@ public class EventoModificacion implements ActionListener {
         } catch(ArrayIndexOutOfBoundsException e2) {
             JDialog d = new JDialog();           
             d.setTitle("Error");
-            d.getContentPane().add(new JLabel("              No se han encontrado Carpetas."));
+            d.getContentPane().add(new JLabel("             No se han encontrado Carpetas."));
             d.setSize(320, 100);
             d.setLocation(830, 400);
             d.setBackground(Color.RED);
