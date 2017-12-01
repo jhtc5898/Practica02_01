@@ -9,6 +9,7 @@ import practica02_01.vista.VentanaDirectorio;
 import practica02_01.vista.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import practica02_01.vista.Arbol;
 import practica02_01.vista.VentanaCarpeta_SubCarpeta;
 import practica02_01.vista.VentanaModificacion;
 
@@ -70,7 +71,10 @@ public class EventoVentanaPrincipal implements ActionListener
         
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(7))) 
         {
-            System.err.println("Agregar Ventana  Informacion/Directorio");  
+            System.err.println("Agregar Ventana  Informacion/Directorio");
+            Arbol ArbolV = new Arbol();
+            ArbolV.main();
+            
         }
         
        
