@@ -50,7 +50,7 @@ public class EventoEliminarArchivo implements ActionListener {
             this.archivo.setNombre(nombre);
         
             this.eliminarArchivo.getTxtList().get(0).setText("");
-        
+        /*
             if (e.getSource().equals(this.eliminarArchivo.getBotonList().get(0)))
             {
                 File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nombre);
@@ -64,8 +64,11 @@ public class EventoEliminarArchivo implements ActionListener {
                 {
                     JOptionPane.showMessageDialog(null,"Archivo no existe");
                 }      
-            }                    
+            } 
+
+*/
         }
+
         catch(ArrayIndexOutOfBoundsException ae)
         {
             JOptionPane.showMessageDialog(null,"Campos vacios");     

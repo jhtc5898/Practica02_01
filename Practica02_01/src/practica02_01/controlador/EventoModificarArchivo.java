@@ -44,7 +44,7 @@ public class EventoModificarArchivo implements ActionListener{
             this.archivo.setNombre(nuevoNombre);
         
             this.modificarArchivo.getTxtList().get(0).setText("");
-        
+        /*
             if (e.getSource().equals(this.modificarArchivo.getBotonList().get(0)))
             {
                 File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nuevoNombre);
@@ -59,7 +59,7 @@ public class EventoModificarArchivo implements ActionListener{
                     JOptionPane.showMessageDialog(null,"El archivo ya existe");
                 }
             }
-        
+        */
         }
         catch(ArrayIndexOutOfBoundsException ae)
         {

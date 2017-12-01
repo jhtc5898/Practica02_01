@@ -31,6 +31,10 @@ public class GestionDato
     {
         return this.carpList.add(a);
     }
+    
+    public boolean addArchivo(Archivo a){
+        return this.archivoList.add(a);
+    }
 
     public List<Directorio> getDirecrtorioList() {
         return direcrtorioList;

@@ -86,7 +86,7 @@ public class VentanaCrearArchivo extends JInternalFrame
        
         panel.add(this.scroll);
         
-        //this.botonList.get(0).addActionListener(new EventoCrearArchivo (this));
+        this.botonList.get(0).addActionListener(new EventoCrearArchivo (this));
         
         
         this.add(panel);
@@ -112,7 +112,7 @@ public class VentanaCrearArchivo extends JInternalFrame
         Object[][] retorno = new Object[m][n];
         int i=0;
         for(Archivo a: this.gestionDato.getArchivoList()) {
-            retorno[i][0] = a.getDirectorio();
+            retorno[i][0] = a.getFichero().getFichero();
             retorno[i][1] = a.getNombre();
             i++;
         }        
