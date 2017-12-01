@@ -30,7 +30,9 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Action Listener");
+        try
+        {
+            System.out.println("Action Listener");
         int numDir= this.VentCarp.getComboDirectorio().getSelectedIndex();
         this.Directorio = this.VentCarp.getGestionDato().getDirecrtorioList().get(numDir);         
         String Crear=this.VentCarp.getTxtList().get(0).getText();
@@ -82,6 +84,12 @@ public class EventoVentanaCarpeta_SubCarpeta implements ActionListener
                     }
                      }
  
+        }
+        catch(ArrayIndexOutOfBoundsException ae)
+        {
+           JOptionPane.showMessageDialog(null,"No se Permiten campos vacios ."); 
+        }
+        
     }
 
     public VentanaCarpeta_SubCarpeta getVentCarp() {
