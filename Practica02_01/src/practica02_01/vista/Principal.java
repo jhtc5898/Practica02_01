@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import practica02_01.controlador.GestionDato;
+import practica02_01.modelo.Archivo;
 import practica02_01.modelo.Carpeta_SubCarpeta;
 import practica02_01.modelo.Directorio;
 
@@ -26,7 +27,8 @@ public class Principal {
        
         List<Directorio> Directorio = new ArrayList<Directorio>();
         List<Carpeta_SubCarpeta> Carp = new  ArrayList<Carpeta_SubCarpeta>();
-        GestionDato gD = new GestionDato(Directorio,Carp);
+        List<Archivo> Arch = new ArrayList<Archivo>(); 
+        GestionDato gD = new GestionDato(Directorio,Carp,Arch);
         VentanaPrincipal VentPrincipal = new VentanaPrincipal(gD);
         /*File fichero=new File("C:\\File");
         

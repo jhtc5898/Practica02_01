@@ -6,6 +6,7 @@
 package practica02_01.controlador;
 
 import java.util.List;
+import practica02_01.modelo.Archivo;
 import practica02_01.modelo.Carpeta_SubCarpeta;
 import practica02_01.modelo.Directorio;
 
@@ -13,10 +14,12 @@ public class GestionDato
 {
     private List<Directorio> direcrtorioList;
     private List<Carpeta_SubCarpeta> carpList;
+    private List<Archivo> archivoList;
 
-    public GestionDato(List<Directorio> direcrtorioList, List<Carpeta_SubCarpeta> carpList) {
+    public GestionDato(List<Directorio> direcrtorioList, List<Carpeta_SubCarpeta> carpList, List<Archivo> archivoList) {
         this.direcrtorioList = direcrtorioList;
         this.carpList = carpList;
+        this.archivoList = archivoList;
     }
 
      
@@ -44,7 +47,13 @@ public class GestionDato
     public void setCarpList(List<Carpeta_SubCarpeta> carpList) {
         this.carpList = carpList;
     }
-    
-    
+
+    public List<Archivo> getArchivoList() {
+        return archivoList;
+    }
+
+    public void setArchivoList(List<Archivo> archivoList) {
+        this.archivoList = archivoList;
+    }
     
 }
