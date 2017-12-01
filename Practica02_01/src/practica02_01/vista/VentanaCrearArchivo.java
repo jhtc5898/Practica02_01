@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import practica02_01.controlador.EventoCrearArchivo;
+import practica02_01.controlador.EventoDirectorio;
 import practica02_01.controlador.GestionDato;
 import practica02_01.modelo.Archivo;
 import practica02_01.modelo.Carpeta_SubCarpeta;
@@ -40,6 +41,7 @@ public class VentanaCrearArchivo extends JInternalFrame
     private DefaultTableModel modeloTabla;
     private Object[] encabezado;
     private Object[][] datos;
+    private EventoDirectorio ficheroP;
 
     public VentanaCrearArchivo(GestionDato gestionDato) {
         super("Crear Archivo",true,true,true,true);
@@ -96,12 +98,18 @@ public class VentanaCrearArchivo extends JInternalFrame
     public File[] cargaComboDirectorio() { 
         
         File[] retorno = new File[this.gestionDato.getCarpList().size()];
+       
+        
         
         int i=0;
         
         for(Carpeta_SubCarpeta cS: this.gestionDato.getCarpList()) {
+            
+            
+           
             retorno[i] = cS.getFichero();
             i++;
+            
         }
         return retorno;
     }

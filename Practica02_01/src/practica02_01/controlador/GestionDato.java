@@ -27,10 +27,14 @@ public class GestionDato
     {
         return this.direcrtorioList.add(p);
     }
+    
     public boolean addCarp(Carpeta_SubCarpeta a)
     {
+ 
         return this.carpList.add(a);
     }
+    
+    
     
     public boolean addArchivo(Archivo a){
         return this.archivoList.add(a);
@@ -58,5 +62,5 @@ public class GestionDato
 
     public void setArchivoList(List<Archivo> archivoList) {
         this.archivoList = archivoList;
-    }
+    } 
 }
