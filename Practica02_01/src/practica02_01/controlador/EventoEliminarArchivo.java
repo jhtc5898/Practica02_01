@@ -41,7 +41,7 @@ public class EventoEliminarArchivo implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        try
+    try
         {
             int numA = this.eliminarArchivo.getComboArchivo().getSelectedIndex();
             this.archivo = this.eliminarArchivo.getGestionDato().getArchivoList().get(numA);
@@ -50,15 +50,15 @@ public class EventoEliminarArchivo implements ActionListener {
             this.archivo.setNombre(nombre);
         
             this.eliminarArchivo.getTxtList().get(0).setText("");
-        /*
+        
             if (e.getSource().equals(this.eliminarArchivo.getBotonList().get(0)))
             {
-                File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nombre);
+                File nFichero = new File("C:\\"+this.archivo.getNombre()+"\\"+nombre);
             
                 if(nFichero.exists()==true)
                 {
                     nFichero.mkdir();
-                    this.archivo.getFichero().delete();
+                    this.archivo.getFichero();
                 }
                 else
                 {
@@ -66,9 +66,9 @@ public class EventoEliminarArchivo implements ActionListener {
                 }      
             } 
 
-*/
-        }
 
+        }
+        
         catch(ArrayIndexOutOfBoundsException ae)
         {
             JOptionPane.showMessageDialog(null,"Campos vacios");     
