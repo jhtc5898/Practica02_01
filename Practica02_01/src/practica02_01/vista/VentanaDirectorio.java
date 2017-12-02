@@ -51,7 +51,7 @@ public class VentanaDirectorio extends JInternalFrame
     {
         this.etiList= new ArrayList<JLabel>();
         this.txtList= new ArrayList<JTextField>();
-        this.etiList.add(new JLabel("Nombre Del Directorio"));
+        this.etiList.add(new JLabel("Nombre Del Directorio:C:\\"));
         this.txtList.add(new JTextField(15)); 
         JPanel panel = new JPanel(new FlowLayout()); 
         panel.add(this.etiList.get(0));
@@ -66,6 +66,7 @@ public class VentanaDirectorio extends JInternalFrame
         
         this.boton=new JButton("Guardar");
         this.boton.addActionListener(new EventoDirectorio(this));
+
         panel.add(this.boton);
         panel.add(this.scroll);
         

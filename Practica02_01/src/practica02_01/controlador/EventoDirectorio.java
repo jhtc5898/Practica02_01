@@ -27,7 +27,10 @@ public class EventoDirectorio implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(this.VentDirect.getBoton())) {
+       
+    
+             
+             if (e.getSource().equals(this.VentDirect.getBoton())) {
             String direccion = this.VentDirect.getTxtList().get(0).getText();
             //System.err.println("Action");
             

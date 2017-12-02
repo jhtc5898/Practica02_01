@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package practica02_01.vista;
+ package practica02_01.vista;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -23,13 +20,16 @@ import practica02_01.modelo.Carpeta_SubCarpeta;
 public class Arbol
 {
 //private Carpeta_SubCarpeta carpeta;
-private GestionDato gD;
+
+ private VentanaDirectorio VentDirect;
+
+
     public  void main()
             
     {
        // System.out.println(this.carpeta.getDirector().getDireccion());
-   
-           File Directorio =new File("C:\\Users\\danie\\Desktop" );
+ 
+           File Directorio =new File("C:\\Program Files (x86)" );
         
         DefaultMutableTreeNode Nodo = new DefaultMutableTreeNode(Directorio.getName());//Padre
         DefaultTreeModel modelo = new DefaultTreeModel(Nodo);
@@ -76,6 +76,12 @@ private GestionDato gD;
                         {
                              mostrar(b, modelo, hijo, Nodo); 
                         }
+                    if(b.isFile())
+                    {
+                    DefaultMutableTreeNode hija = new DefaultMutableTreeNode(b.getName());
+                    modelo.insertNodeInto(hija, Nodo1, 0);
+                    }
+                    
                   
               }
            if(a.isFile())
@@ -87,10 +93,12 @@ private GestionDato gD;
          modelo.insertNodeInto(hijo, Nodo, 0);
          System.err.println(a.toString());
     }
+
+
     }
+    
 
     
 
+    
 
-
-   
