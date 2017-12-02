@@ -41,18 +41,37 @@ public class EventoEliminarArchivo implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        int numA = this.eliminarArchivo.getComboArchivo().getSelectedIndex();
-        this.archivo = this.eliminarArchivo.getGestionDato().getArchivoList().get(numA);
-        String nombre = this.eliminarArchivo.getTxtList().get(0).getText();
+     try
+        {
+            int numA = this.eliminarArchivo.getComboArchivo().getSelectedIndex();
+            this.archivo = this.eliminarArchivo.getGestionDato().getArchivoList().get(numA);
+            String Nombre = this.eliminarArchivo.getTxtList().get(0).getText();
         
-        this.archivo.setNombre(nombre);
+            this.archivo.setNombre(Nombre);
         
-       /* this.eliminarArchivo.getTxtList().get(0).setText("");
-        File nFichero = new File("C:\\"+this.archivo +"\\"+this.archivo.getNombre());
+            this.eliminarArchivo.getTxtList().get(0).setText("");
+        /*
+            if (e.getSource().equals(this.modificarArchivo.getBotonList().get(0)))
+            {
+                File nFichero = new File("C:\\"+this.archivo.getDirectorio()+"\\"+nuevoNombre);
             
-        nFichero.mkdir();
-        this.archivo.getFichero();
+                if(nFichero.exists()==false)
+                {
+                    nFichero.mkdir();
+                    this.archivo.getFichero().renameTo(nFichero);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"El archivo ya existe");
+                }
+            }
         */
+        }
+        catch(ArrayIndexOutOfBoundsException ae)
+        {
+            JOptionPane.showMessageDialog(null,"Campos vacios"); 
+        }
+    
     }
         
             
